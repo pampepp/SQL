@@ -123,12 +123,15 @@ VALUES (10, 80000000, 19);
 INSERT INTO
 networth (celeb_id, networth, films_made)
 VALUES (11,30000000, 17);
+
 INSERT INTO
 networth (celeb_id, networth, films_made)
 VALUES (12,80000000, 20);
+
 INSERT INTO
 networth (celeb_id, networth, films_made)
 VALUES (13, 8000000,27);
+
 INSERT INTO
 networth (celeb_id, networth, films_made)
 VALUES (14, 200000000 ,40);
