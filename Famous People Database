@@ -1,0 +1,163 @@
+/* Create table about the people and what they do here */
+
+
+
+/* Movie Stars Table */
+CREATE TABLE movie_stars (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+name TEXT,
+blockbuster_film TEXT,
+age INTEGER);
+
+INSERT INTO
+movie_stars (name, blockbuster_film, age)
+VALUES ("Robert Downey Jr", "Iron Man", "57");
+
+INSERT INTO
+movie_stars (name, blockbuster_film, age)
+VALUES ("Samuel L Jackson", "Captain America","73");
+
+INSERT INTO
+movie_stars (name, blockbuster_film, age)
+VALUES ("Chris Hemsworth", "Thor", "38");
+
+INSERT INTO 
+movie_stars (name,blockbuster_film, age) 
+VALUES ("Tom Cruise", "Misson Impossible", "59");
+
+INSERT INTO
+movie_stars (name, blockbuster_film, age)
+VALUES ("Tessa Thompson", "Thor", "38");
+
+INSERT INTO
+movie_stars (name, blockbuster_film, age) 
+VALUES ("Zendaya", "Spiderman","25");
+
+INSERT INTO
+movie_stars (name, blockbuster_film, age)
+VALUES ("Tom Holland", "Spiderman","26");
+
+INSERT INTO
+movie_stars (name, blockbuster_film, age)
+VALUES ("Dwayne Johnson", "Fast and Furious","50");
+
+INSERT INTO
+movie_stars (name, blockbuster_film, age)
+VALUES ("Kevin Hart", 
+"Secret Life of Pets","42");
+
+INSERT INTO
+movie_stars (name, blockbuster_film, age)
+VALUES ("Steve Carell", "Bruce Almighty", "59");
+
+INSERT INTO
+movie_stars (name, blockbuster_film, age)
+VALUES ("Idris Elba", "Thor", "49");
+
+INSERT INTO
+movie_stars (name, blockbuster_film, age)
+VALUES ("Channing Tatum", "Dear John", "42");
+
+INSERT INTO
+movie_stars (name, blockbuster_film, age)
+VALUES ("Anthony Mackie", "Avengers Endgame", "43");
+
+INSERT INTO
+movie_stars (name, blockbuster_film, age)
+VALUES ("Eddie Murphy", "Shrek", "61");
+
+INSERT INTO
+movie_stars (name, blockbuster_film, age)
+VALUES ("Jamie Foxx","Ray", "54");
+
+INSERT INTO
+movie_stars (name, blockbuster_film, age)
+VALUES ("Brad Pitt","Wold War Z", "58");
+
+/* Celebrity Networth Table*/
+CREATE TABLE networth (id INTEGER PRIMARY KEY AUTOINCREMENT,
+celeb_id INTEGER,
+networth NUMERIC,
+films_made NUMERIC);
+
+INSERT INTO
+networth (celeb_id, networth, films_made) 
+VALUES (1, 305000000, 43);
+
+INSERT INTO
+networth (celeb_id, networth, films_made) 
+VALUES (2, 250000000, 63);
+
+INSERT INTO
+networth (celeb_id, networth, films_made) 
+VALUES (3, 140000000, 25);
+
+INSERT INTO
+networth (celeb_id, networth, films_made)
+VALUES (4, 600000000, 43);
+
+INSERT INTO
+networth (celeb_id, networth, films_made) 
+VALUES (5,5000000, 16);
+
+INSERT INTO
+networth (celeb_id, networth, films_made) 
+VALUES (6, 15000000, 9);
+
+INSERT INTO
+networth (celeb_id, networth, films_made)
+VALUES (7, 15000000, 21);
+
+INSERT INTO
+networth (celeb_id, networth, films_made)
+VALUES (8, 800000000, 36);
+
+INSERT INTO
+networth (celeb_id, networth, films_made)
+VALUES (9, 200000000, 31);
+
+INSERT INTO
+networth (celeb_id, networth, films_made)
+VALUES (10, 80000000, 19);
+
+INSERT INTO
+networth (celeb_id, networth, films_made)
+VALUES (11,30000000, 17);
+
+INSERT INTO
+networth (celeb_id, networth, films_made)
+VALUES (12,80000000, 20);
+
+INSERT INTO
+networth (celeb_id, networth, films_made)
+VALUES (13, 8000000,27);
+
+INSERT INTO
+networth (celeb_id, networth, films_made)
+VALUES (14, 200000000 ,40);
+
+INSERT INTO
+networth (celeb_id, networth, films_made)
+VALUES (15, 150000000,22);
+
+INSERT INTO
+networth (celeb_id, networth, films_made)
+VALUES (16, 300000000, 33);
+
+/* Joinng Related Tables 
+Networth of celebrities  */
+
+SELECT m.name, n.networth
+FROM movie_stars m
+JOIN networth n
+ON m.id=n.celeb_id;
+
+/* Joinng Related Tables 
+ total number of films  */
+
+SELECT m.name, m.blockbuster_film, sum(n.films_made) as total_films
+FROM movie_stars m
+LEFT OUTER JOIN networth n
+ON m.id=n.celeb_id
+GROUP BY m.name
+ORDER BY total_films desc;
