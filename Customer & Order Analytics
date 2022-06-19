@@ -60,10 +60,9 @@ GROUP BY location
 HAVING COUNT (orderID)>=3
 
 /* How many of each type of headphone was sold in February?*/
-SELECT sum(Quantity) as quantity,
-Product
-FROM BIT_DB.FebSales 
-WHERE Product like '%Headphones%'
+SELECT Product, sum( Quantity ) AS Quantity
+FROM BIT_DB.JanSales
+WHERE Product LIKE '%Head%'
 GROUP BY Product
 
 
