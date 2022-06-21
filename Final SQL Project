@@ -1,0 +1,18 @@
+
+
+SELECT FirstName, LastName, InvoiceId, InvoiceDate, BillingCountry
+FROM chinook.invoices as inv 
+Left JOIN chinook.customers as cust
+on inv.CustomerId = cust.CustomerId
+WHERE Country = "Brazil";
+
+
+SELECT FirstName, LastName, CustomerId, Country 
+FROM chinook.customers 
+WHERE Country != "USA";
+
+
+SELECT FirstName, LastName, CustomerId, Country 
+FROM chinook.customers 
+WHERE Country = "Brazil";
+
